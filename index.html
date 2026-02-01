@@ -172,6 +172,48 @@
                 }
             });
         });
+        // 2. NUEVA LÓGICA: Envío de formulario a la Serverless Function
+        const form = document.querySelector('form'); // Selecciona el formulario de la sección contacto
+
+        form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Evita que la página se recargue
+        
+        const emailInput = form.querySelector('input[type="email"]');
+        const button = form.querySelector('button');
+        const email = emailInput.value;
+
+        // Estado de carga
+        const originalText = button.innerText;
+        button.disabled = true;
+        button.innerText = 'PROCESANDO...';
+
+        try {
+            // Llamamos a tu función de Vercel
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                // Éxito: Puedes cambiar esto por un modal o un mensaje bonito
+                alert('¡Éxito! Tu acceso prioritario a Safekuk ha sido reservado.');
+                emailInput.value = '';
+            } else {
+                // Error de Brevo o validación
+                alert('Error: ' + (result.error || 'No se pudo completar la suscripción.'));
+            }
+        } catch (error) {
+            console.error('Error en la petición:', error);
+            alert('Error de conexión con el servidor.');
+        } finally {
+            // Restaurar botón
+            button.disabled = false;
+            button.innerText = originalText;
+        }
+    });
     </script>
 </body>
 </html>
