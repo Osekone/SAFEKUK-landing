@@ -32,13 +32,31 @@
         .gradient-alu { background: linear-gradient(135deg, #f9fafb 0%, #d1d5db 100%); }
         .dark .gradient-alu { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); }
         .sticky-img { transition: opacity 0.5s ease-in-out; }
+        /* Estilo para el isotipo del logo */
+        .logo-shield {
+            width: 32px;
+            height: 32px;
+            background: #2563eb;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased">
 
     <header class="fixed w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black tracking-tighter">SAFEKUK<span class="text-blue-600">.</span></div>
+            <div class="flex items-center gap-2 group">
+                <div class="logo-shield group-hover:rotate-12 transition-transform shadow-lg shadow-blue-500/20">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="text-2xl font-black tracking-tighter">SAFEKUK<span class="text-blue-600">.</span></div>
+            </div>
+            
             <div class="flex items-center gap-6">
                 <button id="theme-toggle" class="text-xl hover:rotate-12 transition-transform"></button>
                 <a href="#contacto" class="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-500/20 hover:scale-105 transition">Acceso Prioritario</a>
@@ -64,99 +82,35 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white dark:bg-gray-950">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Porque la seguridad no debería ser una preocupación.</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Cocinar con niños en casa es un reto constante. Un descuido de un segundo puede convertirse en un susto innecesario.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-blue-500 transition" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl mb-6">🛡️</div>
-                    <h3 class="text-xl font-bold mb-4">Peligro Real</h3>
-                    <p class="text-gray-500">Impide que los más pequeños alcancen mangos de sartenes o sufran quemaduras por salpicones o derrames.</p>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-blue-500 transition" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-6">🧼</div>
-                    <h3 class="text-xl font-bold mb-4">Suciedad Persistente</h3>
-                    <p class="text-gray-500">Frena las salpicaduras de aceite antes de que lleguen al suelo o muebles.</p>
-                </div>
-                <div class="bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:border-blue-500 transition" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl mb-6">🤯</div>
-                    <h3 class="text-xl font-bold mb-4">Estrés Innecesario</h3>
-                    <p class="text-gray-500">Disfruta del placer de cocinar con la tranquilidad de una barrera física real.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 bg-gray-50 dark:bg-gray-900/50">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
-            <div class="sticky top-32 h-fit">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-right">Ingeniería patentada en Aluminio.</h2>
-                <div class="rounded-3xl overflow-hidden shadow-2xl bg-gray-200 h-[400px]">
-                    <img id="feat-img" src="https://images.unsplash.com/photo-1622127322316-e5f315220c71?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover sticky-img" alt="Material">
-                </div>
-            </div>
-            <div class="space-y-24 py-12">
-                <div class="feat-text" data-img="https://images.unsplash.com/photo-1622127322316-e5f315220c71?auto=format&fit=crop&w=800&q=80">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-600">Aluminio de Grado Profesional</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Ligero, ultra resistente al calor y eterno. Un material que no se oxida ni se degrada con el tiempo, a diferencia del plástico.</p>
-                </div>
-                <div class="feat-text" data-img="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-600">Sistema Click-Go</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Se instala y retira en segundos sin necesidad de taladros, adhesivos permanentes ni herramientas. Tu cocina intacta.</p>
-                </div>
-                <div class="feat-text" data-img="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80">
-                    <h3 class="text-2xl font-bold mb-4 text-blue-600">Limpieza Impecable</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Acabado liso que repele la grasa. Un paño húmedo y queda como el primer día, sin esfuerzo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 bg-white dark:bg-gray-950 overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2" data-aos="fade-right">
-                <h2 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">La seguridad nunca tuvo tan buen aspecto.</h2>
-                <p class="text-lg text-gray-500 mb-8 leading-relaxed">A diferencia de los protectores convencionales, Safekuk se integra como un elemento de diseño más. Es seguridad que suma valor a tu hogar.</p>
-                <div class="inline-flex items-center gap-4 p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl border-l-4 border-blue-600">
-                    <div class="text-3xl">🏅</div>
-                    <div>
-                        <p class="font-bold">Diseño Patentado</p>
-                        <p class="text-sm text-gray-400 text-gray-400">Exclusividad técnica y visual fabricada en España.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="md:w-1/2 relative" data-aos="fade-left">
-                <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
-                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80" class="rounded-3xl shadow-2xl relative z-10" alt="Estética">
-            </div>
-        </div>
-    </section>
-
     <section id="contacto" class="py-24 px-6 bg-blue-600 dark:bg-blue-700 text-white text-center">
         <div class="max-w-3xl mx-auto" data-aos="zoom-in">
+            <div class="mb-8 flex justify-center">
+                <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20 shadow-2xl">
+                    <i class="fas fa-shield-alt text-4xl"></i>
+                </div>
+            </div>
             <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tighter">Sé el primero en tener un Safekuk.</h2>
             <p class="text-blue-100 mb-12 text-lg">Estamos terminando la fabricación de nuestra primera serie limitada. Únete a la lista de espera para recibir un 15% de descuento y acceso prioritario.</p>
             <form class="flex flex-col sm:flex-row gap-3">
                 <input type="email" placeholder="Introduce tu email" class="flex-1 px-8 py-5 rounded-2xl text-gray-900 font-medium focus:ring-4 focus:ring-white/20 outline-none" required>
                 <button class="bg-gray-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-black transition shadow-2xl">Quiero mi descuento</button>
             </form>
-            <p class="mt-6 text-xs text-blue-200">Al suscribirte, aceptas nuestra política de privacidad. No enviamos spam.</p>
+            <p class="mt-6 text-xs text-blue-200 uppercase tracking-widest font-bold">Engineered Home Safety</p>
         </div>
     </section>
 
     <footer class="py-12 border-t border-gray-100 dark:border-gray-900 text-center text-sm text-gray-400 bg-white dark:bg-gray-950">
+        <div class="flex justify-center items-center gap-2 mb-4 opacity-50 grayscale">
+             <div class="logo-shield w-6 h-6 text-[10px]"><i class="fas fa-shield-alt"></i></div>
+             <span class="font-bold tracking-tighter">SAFEKUK</span>
+        </div>
         <p>© 2026 SAFEKUK. Todos los derechos reservados.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Lógica de cambio de imagen según scroll en Sección 3
         const featTexts = document.querySelectorAll('.feat-text');
         const featImg = document.getElementById('feat-img');
-        
         window.addEventListener('scroll', () => {
             featTexts.forEach(text => {
                 const rect = text.getBoundingClientRect();
