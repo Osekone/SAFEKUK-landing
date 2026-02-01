@@ -1,18 +1,57 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
+<html lang="es" class="light"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Safekuk | Seguridad Profesional, Diseño Minimalista</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
     <script>
+        // Configuración de Tailwind para reconocer 'dark' de forma manual
         tailwind.config = {
-            darkMode: 'media', // Se adapta al sistema del usuario (oscuro/claro)
+            darkMode: 'class', // Usa la clase 'dark' en el <html>
         }
+
+        // Script para gestionar el modo oscuro/claro
+        function setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+
+            // Cargar preferencia guardada o establecer claro por defecto
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            if (currentTheme === 'dark') {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+            updateToggleButton(currentTheme);
+
+            themeToggle.addEventListener('click', () => {
+                let newTheme;
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    newTheme = 'light';
+                } else {
+                    htmlElement.classList.add('dark');
+                    newTheme = 'dark';
+                }
+                localStorage.setItem('theme', newTheme);
+                updateToggleButton(newTheme);
+            });
+
+            function updateToggleButton(theme) {
+                if (theme === 'dark') {
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Icono de sol para modo oscuro
+                } else {
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Icono de luna para modo claro
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', setupThemeToggle);
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
         .gradient-alu-light { background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%); }
         .gradient-alu-dark { background: linear-gradient(135deg, #1f2937 0%, #111827 100%); }
     </style>
@@ -22,7 +61,11 @@
     <header class="fixed w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold tracking-tighter">SAFEKUK<span class="text-blue-600">.</span></div>
-            <a href="#contacto" class="bg-gray-900 dark:bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">Lista de Espera</a>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    </button>
+                <a href="#contacto" class="bg-gray-900 dark:bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition">Lista de Espera</a>
+            </div>
         </div>
     </header>
 
@@ -34,94 +77,8 @@
                     Seguridad profesional. <br><span class="text-gray-500 dark:text-gray-400">Diseño minimalista.</span>
                 </h1>
                 <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                    Mejora tu cocina con el sistema de protección Safekuk. Fabricado en aluminio de alta durabilidad, diseñado para mantener a los niños lejos del fuego sin romper la estética de tu hogar.
+                    Mejora tu cocina con el sistema de protección Safekuk. Fabricado en aluminio de alta durabilidad, diseñado para mantener a los niños lejos del fuego sin romper la estética de tu cocina.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#contacto" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-blue-700 transition shadow-lg shadow-blue-200 dark:shadow-none">Reservar con 15% Dto.</a>
-                    <a href="#detalles" class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 px-8 py-4 rounded-xl font-bold text-center hover:bg-gray-50 dark:hover:bg-gray-700 transition">Saber más</a>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="rounded-2xl overflow-hidden shadow-2xl bg-gray-300 dark:bg-gray-800 aspect-video flex items-center justify-center border border-gray-200 dark:border-gray-700">
-                    <span class="text-gray-500 dark:text-gray-400 font-medium text-center px-4">📸 [ Imagen Prototipo Aluminio Anodizado ]</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="detalles" class="py-20 px-6 bg-white dark:bg-gray-950">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-12">Porque la seguridad no debería ser una preocupación.</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-transparent dark:border-gray-800">
-                    <div class="text-4xl mb-4">🛡️</div>
-                    <h3 class="font-bold mb-2">Barrera Real</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Evita que manos pequeñas alcancen mangos de sartenes o quemadores.</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-transparent dark:border-gray-800">
-                    <div class="text-4xl mb-4">🧼</div>
-                    <h3 class="font-bold mb-2">Limpieza Express</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">El aluminio repele la grasa. Un paño y queda como nuevo.</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-transparent dark:border-gray-800">
-                    <div class="text-4xl mb-4">✨</div>
-                    <h3 class="font-bold mb-2">Sin Herramientas</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Instalación Click-Go. Se pone y se quita en 10 segundos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-            <div class="md:w-1/2">
-                <h2 class="text-3xl font-bold mb-6">Ingeniería al servicio de tu hogar.</h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-6">A diferencia de los protectores de plástico, Safekuk utiliza aluminio de grado profesional. La seguridad nunca tuvo tan buen aspecto.</p>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-3 font-medium text-blue-600 dark:text-blue-400">✓ Aluminio ligero e ignífugo</li>
-                    <li class="flex items-center gap-3 font-medium text-blue-600 dark:text-blue-400">✓ Diseño ergonómico sin bordes cortantes</li>
-                    <li class="flex items-center gap-3 font-medium text-blue-600 dark:text-blue-400">✓ Compatible con inducción y gas</li>
-                </ul>
-            </div>
-            <div class="md:w-1/2 bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-100 dark:border-gray-700">
-                <h3 class="text-xl font-bold mb-4 italic">"Estética impecable."</h3>
-                <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">Buscábamos una solución que no pareciera un accesorio barato. El acabado en aluminio Safekuk se integra como parte de la encimera.</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-                    <div>
-                        <p class="font-bold text-sm">Arquitectos & Diseñadores</p>
-                        <p class="text-xs text-gray-400">Opinión sobre el diseño industrial</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="py-24 px-6 bg-white dark:bg-gray-950 text-center">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-4xl font-bold mb-4">Únete a la lista de lanzamiento.</h2>
-            <p class="text-gray-600 dark:text-gray-400 mb-10 text-lg">Sé el primero en proteger tu cocina con un 15% de descuento exclusivo.</p>
-            
-            <form action="#" class="space-y-4">
-                <div class="flex flex-col sm:flex-row gap-2">
-                    <input type="email" placeholder="Tu mejor email..." class="flex-1 px-6 py-4 border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                    <button type="submit" class="bg-gray-900 dark:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition">Quiero mi descuento</button>
-                </div>
-                <label class="flex items-center gap-2 text-xs text-gray-400 justify-center">
-                    <input type="checkbox" required class="accent-blue-600"> He leído y acepto la Política de Privacidad.
-                </label>
-            </form>
-        </div>
-    </section>
-
-    <footer class="py-10 border-t border-gray-100 dark:border-gray-900 text-center text-xs text-gray-400">
-        <p>© 2026 SAFEKUK. Diseño Patentado.</p>
-        <div class="mt-4 space-x-4">
-            <a href="#" class="hover:text-blue-600">Aviso Legal</a>
-            <a href="#" class="hover:text-blue-600">Privacidad</a>
-            <a href="#" class="hover:text-blue-600">Cookies</a>
-        </div>
-    </footer>
-
-</body>
-</html>
+                    <a href="#detalles" class="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-70
