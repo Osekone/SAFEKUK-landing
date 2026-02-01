@@ -22,6 +22,7 @@ export default async function handler(req, res) {
                 attributes: {
                     "TAG": "LANDING_V1",
                     "ORIGEN": "Web Oficial"
+                    "FECHA_REGISTRO": new Date().toISOString().split('T')[0] // Formato YYYY-MM-DD que pide Brevo para tipo Fecha
                 }
             })
         });
