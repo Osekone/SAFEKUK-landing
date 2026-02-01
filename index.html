@@ -31,31 +31,34 @@
         });
     </script>
     <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; transition: background-color 0.5s; }
-        
-        /* Fondo Parallax Sutil */
-        #bg-parallax {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            background-image: url('https://images.unsplash.com/photo-1556912170-4537da395983?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0.05;
-            filter: grayscale(100%);
-            pointer-events: none;
-            will-change: transform;
-        }
-        .dark #bg-parallax { opacity: 0.02; filter: grayscale(100%) invert(100%); }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; transition: background-color 0.5s; overflow-x: hidden; }
+    
+    /* CORRECCIÓN PARALLAX */
+    #bg-parallax {
+        position: fixed;
+        top: -10%; /* Empezamos un poco más arriba para que no se vea el borde al bajar */
+        left: 0;
+        width: 100vw;
+        height: 120vh; /* 20% más alto que la pantalla para permitir el desplazamiento */
+        background-image: url('https://images.unsplash.com/photo-1556912170-4537da395983?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        z-index: -1; /* Detrás de todo */
+        opacity: 0.05;
+        filter: grayscale(100%);
+        pointer-events: none;
+        will-change: transform;
+    }
+    .dark #bg-parallax { opacity: 0.02; filter: grayscale(100%) invert(100%); }
 
-        .gradient-alu { background: linear-gradient(135deg, rgba(249,250,251,0.7) 0%, rgba(209,213,223,0.7) 100%); }
-        .dark .gradient-alu { background: linear-gradient(135deg, rgba(17,24,39,0.8) 0%, rgba(31,41,55,0.8) 100%); }
-        .sticky-img { transition: opacity 0.5s ease-in-out; }
-    </style>
+    /* Aseguramos que las secciones sean transparentes para ver el fondo */
+    section { position: relative; z-index: 10; background-color: transparent !important; }
+    
+    .gradient-alu { background: linear-gradient(135deg, rgba(249,250,251,0.7) 0%, rgba(209,213,223,0.7) 100%); }
+    .dark .gradient-alu { background: linear-gradient(135deg, rgba(17,24,39,0.8) 0%, rgba(31,41,55,0.8) 100%); }
+    .sticky-img { transition: opacity 0.5s ease-in-out; }
+</style>
 </head>
 <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased relative">
 
@@ -175,27 +178,35 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Script Parallax Suave
-        window.addEventListener('scroll', () => {
-            const parallax = document.getElementById('bg-parallax');
-            let offset = window.pageYOffset;
-            parallax.style.transform = `translateY(${offset * 0.15}px)`; // Velocidad lenta
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Inicializar AOS
+    AOS.init({ duration: 1000, once: true });
 
-            // Cambio de imagen en Sección 3
-            const featTexts = document.querySelectorAll('.feat-text');
-            const featImg = document.getElementById('feat-img');
-            featTexts.forEach(text => {
-                const rect = text.getBoundingClientRect();
-                if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-                    const newSrc = text.getAttribute('data-img');
-                    if (featImg.src !== newSrc) {
-                        featImg.style.opacity = '0';
-                        setTimeout(() => { featImg.src = newSrc; featImg.style.opacity = '1'; }, 200);
-                    }
+    const parallax = document.getElementById('bg-parallax');
+    const featImg = document.getElementById('feat-img');
+    const featTexts = document.querySelectorAll('.feat-text');
+
+    window.addEventListener('scroll', () => {
+        // Lógica Parallax: El fondo se mueve un 15% de la velocidad del scroll
+        let offset = window.pageYOffset;
+        parallax.style.transform = `translate3d(0, ${offset * 0.15}px, 0)`;
+
+        // Lógica cambio de imágenes en características
+        featTexts.forEach(text => {
+            const rect = text.getBoundingClientRect();
+            if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
+                const newSrc = text.getAttribute('data-img');
+                if (featImg.src !== newSrc) {
+                    featImg.style.opacity = '0';
+                    setTimeout(() => { 
+                        featImg.src = newSrc; 
+                        featImg.style.opacity = '1'; 
+                    }, 200);
                 }
-            });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
