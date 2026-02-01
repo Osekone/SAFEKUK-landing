@@ -139,9 +139,17 @@
         <div class="max-w-3xl mx-auto" data-aos="zoom-in">
             <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tighter">Sé el primero en tener un Safekuk.</h2>
             <p class="text-blue-100 mb-12 text-lg">Estamos terminando la fabricación de nuestra primera serie limitada. Únete a la lista de espera para recibir un 15% de descuento y acceso prioritario.</p>
-            <form class="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="Introduce tu email" class="flex-1 px-8 py-5 rounded-2xl text-gray-900 font-medium focus:ring-4 focus:ring-white/20 outline-none" required>
-                <button class="bg-gray-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-black transition shadow-2xl">Quiero mi descuento</button>
+            <form class="flex flex-col gap-4 max-w-lg mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" name="nombre" placeholder="Nombre" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/20" required>
+                    <input type="text" name="apellidos" placeholder="Apellidos" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/20" required>
+                </div>
+                <input type="tel" name="telefono" placeholder="Teléfono (ej: +34...)" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/20" required>
+                <input type="email" name="email" placeholder="Email" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/20" required>
+    
+                <button type="submit" class="bg-gray-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-black transition shadow-2xl uppercase tracking-widest mt-2">
+                    Reservar Acceso
+                </button>
             </form>
             <p class="mt-6 text-xs text-blue-200">Al suscribirte, aceptas nuestra política de privacidad. No enviamos spam.</p>
         </div>
