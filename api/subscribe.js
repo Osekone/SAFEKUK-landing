@@ -18,7 +18,7 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 email: email,
                 updateEnabled: true,
-                listIds: [2], // Asegúrate de que este ID de lista existe en tu Brevo
+                listIds: [4], // Asegúrate de que este ID de lista existe en tu Brevo
                 attributes: {
                     "TAG": "LANDING_V1",
                     "ORIGEN": "Web Oficial"
