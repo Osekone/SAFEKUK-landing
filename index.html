@@ -199,11 +199,17 @@
                 body: JSON.stringify(data) // Enviamos nombre, apellidos, telefono y email
             });
 
+            const result = await response.json();
+
             if (response.ok) {
                 alert('¡Gracias ' + data.nombre + '! Hemos reservado tu acceso.');
                 form.reset();
+            } else if (response.status === 409) {
+                 // Caso específico de duplicado
+                alert('Atención: El email o el teléfono ya están registrados en nuestra lista de espera.');
             } else {
-                alert('Hubo un problema. Revisa los datos.');
+                // Otros errores (formato, etc)
+                alert('Error: ' + (result.error || 'No se pudo completar el registro.'));
             }
         } catch (error) {
             alert('Error de conexión.');
