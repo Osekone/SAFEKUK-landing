@@ -350,17 +350,6 @@
     </div>
 
     <!--<header class="fixed w-full z-50 bg-gray-100/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-lg">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="https://raw.githubusercontent.com/Osekone/SAFEKUK-landing/main/safe-removebg-preview.png" alt="Safekuk Logo" class="h-10 md:h-20 w-auto">
-            </div>
-            <div class="flex items-center gap-6">
-                <button id="theme-toggle" class="text-xl hover:rotate-180 transition-transform duration-500 hover:scale-125"></button>
-                <a href="#contacto" class="btn-enhanced bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 relative z-10">Acceso Prioritario</a>
-            </div>
-        </div>
-    </header> -->
-    <header class="fixed w-full z-50 bg-gray-100/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-lg">
       <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
             <div class="flex items-center">
               <img src="https://raw.githubusercontent.com/Osekone/SAFEKUK-landing/main/safe-removebg-preview.png" alt="Safekuk Logo" class="h-16 md:h-24 w-auto drop-shadow-md">
@@ -370,8 +359,19 @@
               <a href="#contacto" class="btn-enhanced bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 relative z-10">Acceso Prioritario</a>
             </div>
       </div>
-    </header>
+    </header> -->
 
+    <header id="main-header" class="fixed w-full z-50 bg-gray-100/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 ease-in-out">
+          <div id="header-inner"class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center transition-all duration-300">
+                <div class="flex items-center">
+                      <img id="logo" src="https://raw.githubusercontent.com/Osekone/SAFEKUK-landing/main/safe-removebg-preview.png" alt="Safekuk Logo" class="h-16 md:h-24 w-auto transition-all duration-300">
+                </div>
+                <div class="flex items-center gap-6">
+                      <button id="theme-toggle" class="text-xl hover:rotate-180 transition-transform duration-500 hover:scale-125"></button>
+                      <a href="#contacto" class="btn-enhanced bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 relative z-10">Acceso Prioritario</a>
+                </div>
+          </div>
+    </header>
 
     <section class="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden gradient-alu">
         <!-- Floating particles background -->
@@ -624,7 +624,35 @@
             button.disabled = false;
             button.innerText = 'RESERVAR ACCESO';
         }
-    });
+    }); 
+    </script>
+    <script>
+      //scroll inteligente y suave para agrandar y minimizar header con el scroll
+      const header = document.getElementById('main-header');
+      const headerInner = document.getElementById('header-inner');
+      const logo = document.getElementById('logo');
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 80) {
+          // Header encogido
+          header.classList.add('shadow-md');
+          headerInner.classList.remove('py-6');
+          headerInner.classList.add('py-3');
+
+          logo.classList.remove('h-16', 'md:h-24');
+          logo.classList.add('h-10', 'md:h-14');
+        } else {
+          // Header grande (top)
+          header.classList.remove('shadow-md');
+          headerInner.classList.remove('py-3');
+          headerInner.classList.add('py-6');
+
+          logo.classList.remove('h-10', 'md:h-14');
+          logo.classList.add('h-16', 'md:h-24');
+        }
+      });
     </script>
 </body>
 </html>
