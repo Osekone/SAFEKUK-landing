@@ -193,6 +193,7 @@
             height: 100vh;
             z-index: -1;
             overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100vh);
         }
         
         .parallax-bg::before {
@@ -341,14 +342,14 @@
         }
     </style>
 </head>
-<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
 
     <!-- Apple-style Parallax Background -->
     <div class="parallax-bg">
         <img id="parallax-image" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=2000&q=80" alt="Kitchen Background">
     </div>
 
-    <header class="fixed w-full z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 shadow-lg">
+    <header class="fixed w-full z-50 bg-gray-100/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-black tracking-tighter glow-text">SAFEKUK<span class="text-blue-600">.</span></div>
             <div class="flex items-center gap-6">
@@ -370,7 +371,7 @@
             <div class="particle" style="width: 3px; height: 3px; left: 90%; animation-delay: 2s; animation-duration: 21s;"></div>
         </div>
         
-        <div class="w-full flex items-center relative z-10 min-h-[80vh] pl-6 md:pl-50 lg:pl-80 pt-0">
+        <div class="w-full flex items-center relative z-10 min-h-[80vh] pl-6 md:pl-24 lg:pl-36 pt-12">
             <div data-aos="fade-right" data-aos-duration="1000" class="max-w-2xl">
                 <span class="inline-block px-4 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold uppercase mb-6 shimmer">Innovación Patentada</span>
                 <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6 scale-in">Seguridad profesional. <br><span class="text-gray-500">Diseño minimalista.</span></h1>
@@ -382,7 +383,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white dark:bg-gray-950 relative overflow-hidden">
+    <section class="py-24 px-6 bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
         
@@ -445,7 +446,7 @@
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white/80 dark:bg-gray-950 overflow-hidden">
+    <section class="py-24 px-6 bg-gray-100/80 dark:bg-gray-900 overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div class="md:w-1/2" data-aos="fade-right">
                 <h2 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">La seguridad nunca tuvo tan buen aspecto.</h2>
@@ -492,7 +493,7 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-gray-100 dark:border-gray-900 text-center text-sm text-gray-400 bg-white dark:bg-gray-950">
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-400 bg-gray-100 dark:bg-gray-900">
         <p>© 2026 SAFEKUK. Todos los derechos reservados.</p>
     </footer>
 
