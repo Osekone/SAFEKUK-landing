@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Escandallo SAFEKUK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-4xl font-extrabold tracking-tight">Escandallo <span class="text-blue-600">SAFEKUK</span></h1>
+                <p class="text-slate-500 mt-1">Gestión de costes variables y estructura fija anual.</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Multiplicador Objetivo:</span>
+                <input type="number" id="multiplier" value="3" step="0.1" class="w-16 text-center font-bold text-blue-600 bg-slate-100 rounded-lg p-1 outline-none focus:ring-2 focus:ring-blue-500" oninput="calculate()">
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Inputs Col -->
+            <div class="lg:col-span-2 space-y-6">
+                
+                <!-- Producción -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-gears"></i> Producción (Variables)
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Aluminio (Ud)</label>
+                            <div class="relative"><input type="number" id="aluminio" value="4.50" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold pr-6" oninput="calculate()"><span class="absolute right-2.5 top-2.5 text-slate-400 text-xs">€</span></div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Corte Láser (Ud)</label>
+                            <div class="relative"><input type="number" id="corteLaser" value="5.00" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold pr-6" oninput="calculate()"><span class="absolute right-2.5 top-2.5 text-slate-400 text-xs">€</span></div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Anodizado (Ud)</label>
+                            <div class="relative"><input type="number" id="anodizado" value="2.50" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold pr-6" oninput="calculate()"><span class="absolute right-2.5 top-2.5 text-slate-400 text-xs">€</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gastos Fijos -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved"></i> Gastos Fijos Anuales
+                        </h2>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">Ventas Est/Año:</span>
+                            <input type="number" id="ventasAnuales" value="300" class="w-20 p-1 text-center bg-slate-100 rounded font-bold text-xs" oninput="calculate()">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Patente</label>
+                            <input type="number" id="fijoPatente" value="100" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold" oninput="calculate()">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Hosting/Web</label>
+                            <input type="number" id="fijoWeb" value="150" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold" oninput="calculate()">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Workspace</label>
+                            <input type="number" id="fijoMail" value="120" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold" oninput="calculate()">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Software/Otros</label>
+                            <input type="number" id="fijoOtros" value="100" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold" oninput="calculate()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Venta -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-rocket"></i> Venta y Captación
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Packaging</label>
+                            <input type="number" id="packaging" value="3.50" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold" oninput="calculate()">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Envío Unitario</label>
+                            <input type="number" id="envio" value="6.50" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold" oninput="calculate()">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Marketing (CAC)</label>
+                            <input type="number" id="marketing" value="5.00" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold" oninput="calculate()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl flex items-start gap-3">
+                    <i class="fa-solid fa-circle-info text-blue-500 mt-1"></i>
+                    <p class="text-sm text-blue-700">
+                        Cada venta de <strong>SAFEKUK</strong> contribuye a amortizar los gastos anuales de patente y servidores.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Resumen Col -->
+            <div class="space-y-6">
+                <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl sticky top-8">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-blue-400">
+                        <i class="fa-solid fa-chart-line text-white"></i> Resumen Económico
+                    </h2>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center opacity-70">
+                            <span class="text-sm">Coste Unitario (COGS)</span>
+                            <span id="resTotalCoste" class="font-mono text-lg font-bold text-white">-</span>
+                        </div>
+                        <div class="flex justify-between items-center text-blue-400">
+                            <span class="text-sm font-bold">PVP (IVA 21% Incl.)</span>
+                            <span id="resPvpFinal" class="text-3xl font-bold">-</span>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex justify-between items-center">
+                            <span class="text-sm text-emerald-400 font-bold uppercase tracking-widest">Beneficio Neto / Ud</span>
+                            <span id="resBeneficio" class="text-2xl font-bold text-emerald-400">-</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/5 rounded-2xl p-4 space-y-4">
+                        <div class="flex justify-between text-[10px] uppercase tracking-widest opacity-60">
+                            <span>Métricas Clave</span>
+                            <span>Valor</span>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[9px] font-bold uppercase text-white/40 mb-1">
+                                <span>Margen sobre Venta</span>
+                                <span id="resMargenLabel">-</span>
+                            </div>
+                            <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                <div id="resMargenBar" class="h-full bg-emerald-400" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-[10px] text-white/60">
+                            <span>Punto de Equilibrio (unidades)</span>
+                            <span id="resBreakEven" class="font-bold text-white">-</span>
+                        </div>
+                    </div>
+
+                    <button onclick="window.print()" class="w-full mt-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-print"></i> Imprimir Informe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            const getVal = (id) => parseFloat(document.getElementById(id).value) || 0;
+
+            const hardware = getVal('aluminio') + getVal('corteLaser') + getVal('anodizado');
+            const ops = getVal('packaging') + getVal('envio');
+            const marketing = getVal('marketing');
+            const multiplier = getVal('multiplier');
+            const ventasAnuales = getVal('ventasAnuales');
+
+            // Gastos Fijos Anuales
+            const totalFijos = getVal('fijoPatente') + getVal('fijoWeb') + getVal('fijoMail') + getVal('fijoOtros');
+            const fijoPorUnidad = ventasAnuales > 0 ? totalFijos / ventasAnuales : 0;
+
+            // Mermas (5% sobre producción)
+            const mermas = (hardware + getVal('packaging')) * 0.05;
+
+            // COGS (Coste unitario total)
+            const totalCosteUnitario = hardware + ops + marketing + fijoPorUnidad + mermas;
+
+            // Precio Venta Sin IVA
+            const pvpSinIva = totalCosteUnitario * multiplier;
+
+            // Gastos Variables (Comisiones 2.5% + Devoluciones 3%) = 5.5% sobre PVP Sin IVA
+            const variablesVenta = pvpSinIva * 0.055;
+
+            const pvpFinal = pvpSinIva * 1.21;
+            const beneficioNeto = pvpSinIva - totalCosteUnitario - variablesVenta;
+            const margen = pvpSinIva > 0 ? (beneficioNeto / pvpSinIva) * 100 : 0;
+            const breakEven = beneficioNeto > 0 ? Math.ceil(totalFijos / (pvpSinIva - (totalCosteUnitario - fijoPorUnidad) - variablesVenta)) : '-';
+
+            // Update UI
+            document.getElementById('resTotalCoste').innerText = totalCosteUnitario.toFixed(2) + '€';
+            document.getElementById('resPvpFinal').innerText = pvpFinal.toFixed(2) + '€';
+            document.getElementById('resBeneficio').innerText = beneficioNeto.toFixed(2) + '€';
+            document.getElementById('resMargenLabel').innerText = margen.toFixed(1) + '%';
+            document.getElementById('resMargenBar').style.width = Math.min(margen, 100) + '%';
+            document.getElementById('resBreakEven').innerText = breakEven;
+        }
+
+        // Init
+        calculate();
+    </script>
+</body>
+</html>
