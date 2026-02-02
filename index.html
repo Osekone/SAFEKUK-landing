@@ -543,8 +543,8 @@
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const scrolled = window.pageYOffset;
-                    // Slow down the scroll effect (0.5 = half speed)
-                    parallaxImage.style.transform = `translateX(-50%) translateY(${scrolled * 0.5}px)`;
+                    // Slow down the scroll effect (0.2 = much slower, stays visible longer)
+                    parallaxImage.style.transform = `translateX(-50%) translateY(${scrolled * 0.2}px)`;
                     ticking = false;
                 });
                 ticking = true;
