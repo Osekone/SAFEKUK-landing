@@ -185,6 +185,49 @@
             transition: transform 0.1s ease-out;
         }
         
+        /* Apple-style parallax background */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .parallax-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.4) 100%);
+            z-index: 1;
+        }
+        
+        .dark .parallax-bg::before {
+            background: linear-gradient(to bottom, 
+                rgba(3, 7, 18, 0.2) 0%, 
+                rgba(3, 7, 18, 0.3) 50%,
+                rgba(3, 7, 18, 0.5) 100%);
+        }
+        
+        .parallax-bg img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            min-height: 100vh;
+            object-fit: cover;
+            will-change: transform;
+        }
+        
         /* Image zoom on scroll */
         .zoom-on-scroll {
             transition: transform 0.3s ease-out;
@@ -300,6 +343,11 @@
     </style>
 </head>
 <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased">
+
+    <!-- Apple-style Parallax Background -->
+    <div class="parallax-bg">
+        <img id="parallax-image" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=2000&q=80" alt="Kitchen Background">
+    </div>
 
     <header class="fixed w-full z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -486,6 +534,22 @@
             parallaxElements.forEach(el => {
                 el.style.transform = `translateY(${scrolled * 0.3}px)`;
             });
+        });
+        
+        // Apple-style parallax background
+        const parallaxImage = document.getElementById('parallax-image');
+        let ticking = false;
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    // Slow down the scroll effect (0.5 = half speed)
+                    parallaxImage.style.transform = `translateX(-50%) translateY(${scrolled * 0.5}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
         
         // Magnetic effect for magnetic elements
