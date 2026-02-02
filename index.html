@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safekuk | Seguridad Profesional</title>
+    <title>Safekuk | Seguridad Profesional Patentada</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -30,8 +29,6 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        
-        /* Enhanced gradient backgrounds */
         .gradient-alu { 
             background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 50%, #d1d5db 100%);
             position: relative;
@@ -39,312 +36,44 @@
         .dark .gradient-alu { 
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
         }
-        
-        /* Animated gradient overlay */
         .gradient-alu::before {
             content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, 
-                rgba(59, 130, 246, 0.1) 0%, 
-                transparent 50%, 
-                rgba(147, 51, 234, 0.1) 100%);
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, transparent 50%, rgba(147, 51, 234, 0.1) 100%);
             animation: gradientShift 8s ease infinite;
             pointer-events: none;
         }
-        
         @keyframes gradientShift {
             0%, 100% { opacity: 0.3; transform: translateX(0); }
             50% { opacity: 0.6; transform: translateX(10px); }
         }
-        
-        /* Floating particles effect */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(59, 130, 246, 0.3);
-            border-radius: 50%;
-            animation: float 20s infinite;
-        }
-        
-        .dark .particle {
-            background: rgba(147, 197, 253, 0.2);
-        }
-        
+        .particles { position: absolute; width: 100%; height: 100%; overflow: hidden; pointer-events: none; }
+        .particle { position: absolute; background: rgba(59, 130, 246, 0.3); border-radius: 50%; animation: float 20s infinite; }
+        .dark .particle { background: rgba(147, 197, 253, 0.2); }
         @keyframes float {
             0% { transform: translateY(100vh) scale(0); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
             100% { transform: translateY(-100px) scale(1); opacity: 0; }
         }
-        
-        .sticky-img { 
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
-        }
-        
-        /* Enhanced hover effects for cards */
-        .feature-card {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .feature-card:hover::before {
-            left: 100%;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-        }
-        
-        /* Glowing text effect */
-        .glow-text {
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3),
-                         0 0 40px rgba(59, 130, 246, 0.2);
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.2); }
-            50% { text-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.3); }
-        }
-        
-        /* Enhanced button effects */
-        .btn-enhanced {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-enhanced::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn-enhanced:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .btn-enhanced:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Animated border gradient */
-        .border-gradient {
-            position: relative;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899) border-box;
-            border: 2px solid transparent;
-            animation: rotate-border 4s linear infinite;
-        }
-        
-        .dark .border-gradient {
-            background: linear-gradient(#1f2937, #1f2937) padding-box,
-                        linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899) border-box;
-        }
-        
-        @keyframes rotate-border {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-        
-        /* Parallax effect helper */
-        .parallax-slow {
-            transition: transform 0.1s ease-out;
-        }
-        
-        /* Apple-style parallax background */
-        .parallax-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .parallax-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, 
-                rgba(255, 255, 255, 0.1) 0%, 
-                rgba(255, 255, 255, 0.2) 50%,
-                rgba(255, 255, 255, 0.4) 100%);
-            z-index: 1;
-        }
-        
-        .dark .parallax-bg::before {
-            background: linear-gradient(to bottom, 
-                rgba(3, 7, 18, 0.2) 0%, 
-                rgba(3, 7, 18, 0.3) 50%,
-                rgba(3, 7, 18, 0.5) 100%);
-        }
-        
-        .parallax-bg img {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            min-height: 100vh;
-            object-fit: cover;
-            will-change: transform;
-        }
-        
-        /* Image zoom on scroll */
-        .zoom-on-scroll {
-            transition: transform 0.3s ease-out;
-        }
-        
-        /* Smooth scale animation */
-        @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        
-        .scale-in {
-            animation: scaleIn 0.6s ease-out;
-        }
-        
-        /* Counter animation */
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .count-up {
-            animation: countUp 0.8s ease-out;
-        }
-        
-        /* Form focus effects */
-        input:focus {
-            transform: scale(1.02);
-            transition: all 0.3s ease;
-        }
-        
-        /* Ripple effect on button click */
-        .ripple {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .ripple::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .ripple:active::after {
-            width: 200px;
-            height: 200px;
-        }
-        
-        /* Floating animation for emoji */
-        .float-emoji {
-            animation: floatEmoji 3s ease-in-out infinite;
-        }
-        
-        @keyframes floatEmoji {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* Magnetic hover effect */
-        .magnetic {
-            transition: transform 0.2s ease;
-        }
-        
-        /* Shimmer effect */
-        .shimmer {
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(255, 255, 255, 0.3) 50%, 
-                transparent 100%);
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        /* Aluminium glow flow animation */
-        .aluminium-glow {
-            animation: aluminiumFlow 8s ease-in-out infinite;
-        }
-        
+        .feature-card { position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); }
+        .glow-text { text-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        .btn-enhanced { position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .btn-enhanced:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+        .parallax-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden; }
+        .parallax-bg img { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; min-height: 100vh; object-fit: cover; }
+        .float-emoji { animation: floatEmoji 3s ease-in-out infinite; }
+        @keyframes floatEmoji { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .aluminium-glow { animation: aluminiumFlow 8s ease-in-out infinite; }
         @keyframes aluminiumFlow {
-            0% { 
-                opacity: 0.25;
-                transform: rotate(0deg) scale(1);
-            }
-            25% { 
-                opacity: 0.35;
-                transform: rotate(90deg) scale(1.05);
-            }
-            50% { 
-                opacity: 0.3;
-                transform: rotate(180deg) scale(1);
-            }
-            75% { 
-                opacity: 0.35;
-                transform: rotate(270deg) scale(1.05);
-            }
-            100% { 
-                opacity: 0.25;
-                transform: rotate(360deg) scale(1);
-            }
+            0%, 100% { opacity: 0.25; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.05); }
         }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 antialiased">
 
-    <!-- Apple-style Parallax Background -->
     <div class="parallax-bg">
         <img id="parallax-image" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=2000&q=80" alt="Kitchen Background">
     </div>
@@ -353,273 +82,148 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-black tracking-tighter glow-text">SAFEKUK<span class="text-blue-600">.</span></div>
             <div class="flex items-center gap-6">
-                <button id="theme-toggle" class="text-xl hover:rotate-180 transition-transform duration-500 hover:scale-125"></button>
-                <a href="#contacto" class="btn-enhanced bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 relative z-10">Acceso Prioritario</a>
+                <button id="theme-toggle" class="text-xl hover:rotate-180 transition-transform duration-500"></button>
+                <a href="#contacto" class="btn-enhanced bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-500/30">Acceso Prioritario</a>
             </div>
         </div>
     </header>
 
     <section class="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden gradient-alu">
-        <!-- Floating particles background -->
         <div class="particles">
-            <div class="particle" style="width: 4px; height: 4px; left: 10%; animation-delay: 0s; animation-duration: 15s;"></div>
-            <div class="particle" style="width: 6px; height: 6px; left: 20%; animation-delay: 2s; animation-duration: 18s;"></div>
-            <div class="particle" style="width: 3px; height: 3px; left: 30%; animation-delay: 4s; animation-duration: 20s;"></div>
-            <div class="particle" style="width: 5px; height: 5px; left: 50%; animation-delay: 1s; animation-duration: 16s;"></div>
-            <div class="particle" style="width: 4px; height: 4px; left: 70%; animation-delay: 3s; animation-duration: 19s;"></div>
-            <div class="particle" style="width: 6px; height: 6px; left: 80%; animation-delay: 5s; animation-duration: 17s;"></div>
-            <div class="particle" style="width: 3px; height: 3px; left: 90%; animation-delay: 2s; animation-duration: 21s;"></div>
+            <div class="particle" style="width: 4px; height: 4px; left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="width: 6px; height: 6px; left: 80%; animation-delay: 5s;"></div>
         </div>
         
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <span class="inline-block px-4 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold uppercase mb-6 shimmer">Innovación Patentada</span>
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6 scale-in">Seguridad profesional. <br><span class="text-gray-500">Diseño minimalista.</span></h1>
-                <p class="text-lg text-gray-600 dark:text-gray-300 mb-10 max-w-lg leading-relaxed">Mejora tu cocina con el sistema de protección Safekuk. Fabricado en aluminio de alta durabilidad, diseñado para mantener a los niños lejos del fuego sin romper la estética de tu hogar.</p>
+            <div data-aos="fade-right">
+                <span class="inline-block px-4 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold uppercase mb-6">
+                    <i class="fas fa-certificate mr-2"></i>Modelo de Utilidad Patentado (OEPM)
+                </span>
+                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6 tracking-tight">Tu cocina, <br><span class="text-blue-600">bajo control.</span></h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-10 max-w-lg leading-relaxed">Protección física real contra quemaduras y vuelcos accidentales. Un diseño blindado en aluminio que protege a niños y mayores.</p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#contacto" class="btn-enhanced ripple bg-gray-900 dark:bg-white dark:text-gray-900 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl hover:shadow-gray-900/50 relative overflow-hidden">Unirse a la lista</a>
+                    <a href="#contacto" class="btn-enhanced bg-gray-900 dark:bg-white dark:text-gray-900 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl">Unirse a la lista</a>
+                    <div class="flex items-center gap-2 text-sm font-medium text-gray-500">
+                        <i class="fas fa-shield-alt text-blue-600"></i> Registro U202330349
+                    </div>
                 </div>
             </div>
-            <div class="relative" data-aos="fade-left" data-aos-duration="1000">
-                <div class="absolute -inset-4 bg-gradient-to-r from-gray-400 via-gray-300 to-gray-400 dark:from-gray-600 dark:via-gray-500 dark:to-gray-600 rounded-3xl blur-2xl opacity-30 aluminium-glow"></div>
-                <div class="rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-300/30 dark:border-gray-600/30 relative zoom-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Safekuk Prototipo" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+            <div class="relative" data-aos="zoom-in">
+                <div class="absolute -inset-4 bg-blue-500 rounded-3xl blur-3xl opacity-20 aluminium-glow"></div>
+                <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 bg-gray-100">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Safekuk Prototipo" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white dark:bg-gray-950 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-        
-        <div class="max-w-7xl mx-auto relative z-10">
+    <section class="py-24 px-6 bg-white dark:bg-gray-950">
+        <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Porque la seguridad no debería ser una preocupación.</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg">Cocinar con niños en casa es un reto constante. Un descuido de un segundo puede convertirse en un susto innecesario.</p>
+                <h2 class="text-4xl font-bold mb-4">Ingeniería para la tranquilidad familiar</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Basado en la patente oficial, Safekuk resuelve los tres grandes riesgos de la cocina moderna.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="feature-card bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl mb-6 float-emoji">🛡️</div>
-                    <h3 class="text-xl font-bold mb-4">Peligro Real</h3>
-                    <p class="text-gray-500">Impide que los más pequeños alcancen mangos de sartenes o sufran quemaduras por salpicones o derrames.</p>
+                <div class="feature-card bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800">
+                    <div class="text-4xl mb-6 float-emoji">👶</div>
+                    <h3 class="text-xl font-bold mb-4">Protección Infantil</h3>
+                    <p class="text-gray-500">Altura de 10cm diseñada para impedir que los niños alcancen mangos de sartenes o toquen placas calientes.</p>
                 </div>
-                <div class="feature-card bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-6 float-emoji" style="animation-delay: 0.5s;">🧼</div>
-                    <h3 class="text-xl font-bold mb-4">Suciedad Persistente</h3>
-                    <p class="text-gray-500">Frena las salpicaduras de aceite antes de que lleguen al suelo o muebles.</p>
+                <div class="feature-card bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800">
+                    <div class="text-4xl mb-6 float-emoji" style="animation-delay: 0.5s;">👵</div>
+                    <h3 class="text-xl font-bold mb-4">Cuidado de Mayores</h3>
+                    <p class="text-gray-500">Evita el vuelco accidental de recipientes con líquidos hirviendo, protegiendo contra quemaduras graves en extremidades.</p>
                 </div>
-                <div class="feature-card bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl mb-6 float-emoji" style="animation-delay: 1s;">🤯</div>
-                    <h3 class="text-xl font-bold mb-4">Estrés Innecesario</h3>
-                    <p class="text-gray-500">Disfruta del placer de cocinar con la tranquilidad de una barrera física real.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 bg-gray-50 dark:bg-gray-900/50 relative overflow-hidden">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-20 right-10 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-        
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 relative z-10">
-            <div class="sticky top-32 h-fit">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-right">Ingeniería patentada en Aluminio.</h2>
-                <div class="rounded-3xl overflow-hidden shadow-2xl bg-gray-200 h-[400px] border-2 border-transparent hover:border-blue-500 transition-all duration-500">
-                    <img id="feat-img" src="https://images.unsplash.com/photo-1622127322316-e5f315220c71?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover sticky-img" alt="Material">
-                </div>
-            </div>
-            <div class="space-y-24 py-12">
-                <div class="feat-text magnetic" data-img="https://images.unsplash.com/photo-1622127322316-e5f315220c71?auto=format&fit=crop&w=800&q=80">
-                    <div class="p-8 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-blue-500/20 hover:border-blue-500 transition-all duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-bold mb-4 text-blue-600">Aluminio de Grado Profesional</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Ligero, ultra resistente al calor y eterno. Un material que no se oxida ni se degrada con el tiempo, a diferencia del plástico.</p>
-                    </div>
-                </div>
-                <div class="feat-text magnetic" data-img="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80">
-                    <div class="p-8 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-blue-500/20 hover:border-blue-500 transition-all duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-bold mb-4 text-blue-600">Sistema Click-Go</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Se instala y retira en segundos sin necesidad de taladros, adhesivos permanentes ni herramientas. Tu cocina intacta.</p>
-                    </div>
-                </div>
-                <div class="feat-text magnetic" data-img="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&w=800&q=80">
-                    <div class="p-8 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-blue-500/20 hover:border-blue-500 transition-all duration-300 hover:shadow-xl">
-                        <h3 class="text-2xl font-bold mb-4 text-blue-600">Limpieza Impecable</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">Acabado liso que repele la grasa. Un paño húmedo y queda como el primer día, sin esfuerzo.</p>
-                    </div>
+                <div class="feature-card bg-gray-50 dark:bg-gray-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800">
+                    <div class="text-4xl mb-6 float-emoji" style="animation-delay: 1s;">🛡️</div>
+                    <h3 class="text-xl font-bold mb-4">Barrera Antisalpicaduras</h3>
+                    <p class="text-gray-500">Mantiene la zona de cocción limpia y evita que el aceite caliente salte fuera del perímetro de seguridad.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-white dark:bg-gray-950 overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="md:w-1/2" data-aos="fade-right">
-                <h2 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">La seguridad nunca tuvo tan buen aspecto.</h2>
-                <p class="text-lg text-gray-500 mb-8 leading-relaxed">A diferencia de los protectores convencionales, Safekuk se integra como un elemento de diseño más. Es seguridad que suma valor a tu hogar.</p>
-                <div class="inline-flex items-center gap-4 p-6 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/30 rounded-2xl border-l-4 border-blue-600 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="text-3xl float-emoji">🏅</div>
-                    <div>
-                        <p class="font-bold">Diseño Patentado</p>
-                        <p class="text-sm text-gray-400">Exclusividad técnica y visual fabricada en España.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="md:w-1/2 relative" data-aos="fade-left">
-                <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
-                <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
-                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80" class="rounded-3xl shadow-2xl relative z-10 hover:scale-105 transition-transform duration-500 border-2 border-white/20" alt="Estética">
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="py-24 px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 dark:from-blue-700 dark:via-blue-800 dark:to-purple-800 text-white text-center relative overflow-hidden">
-        <!-- Animated background elements -->
-        <div class="absolute top-0 left-0 w-full h-full opacity-10">
-            <div class="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-300 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-        </div>
-        
-        <div class="max-w-3xl mx-auto relative z-10" data-aos="zoom-in">
-            <h2 class="text-4xl md:text-5xl font-black mb-6 uppercase tracking-tighter drop-shadow-lg">Sé el primero en tener un Safekuk.</h2>
-            <p class="text-blue-100 mb-12 text-lg drop-shadow">Estamos terminando la fabricación de nuestra primera serie limitada. Únete a la lista de espera para recibir un 15% de descuento y acceso prioritario.</p>
-            <form class="flex flex-col gap-4 max-w-lg mx-auto">
+    <section id="contacto" class="py-24 px-6 bg-gradient-to-br from-blue-700 to-purple-800 text-white relative overflow-hidden">
+        <div class="max-w-3xl mx-auto relative z-10 text-center" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tighter uppercase">Reserva tu Safekuk</h2>
+            <p class="text-blue-100 mb-12 text-lg">Estamos fabricando la primera serie en aluminio anodizado. Apúntate para obtener prioridad y un 15% de descuento.</p>
+            
+            <form class="flex flex-col gap-4 max-w-lg mx-auto text-left">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="text" name="nombre" placeholder="Nombre" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/30 shadow-lg" required>
-                    <input type="text" name="apellidos" placeholder="Apellidos" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/30 shadow-lg" required>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold uppercase ml-2 opacity-70">Nombre</label>
+                        <input type="text" name="nombre" placeholder="Ej: Juan" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-blue-400" required>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold uppercase ml-2 opacity-70">Apellidos</label>
+                        <input type="text" name="apellidos" placeholder="Ej: Pérez" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-blue-400" required>
+                    </div>
                 </div>
-                <input type="tel" name="telefono" placeholder="Teléfono (ej: +34...)" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/30 shadow-lg" required>
-                <input type="email" name="email" placeholder="Email" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-white/30 shadow-lg" required>
-    
-                <button type="submit" class="btn-enhanced ripple bg-gray-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-black transition shadow-2xl uppercase tracking-widest mt-2 hover:shadow-gray-900/50 relative overflow-hidden">
-                    Reservar Acceso
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold uppercase ml-2 opacity-70">Teléfono móvil</label>
+                    <input type="tel" name="telefono" placeholder="600 000 000" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-blue-400" required>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold uppercase ml-2 opacity-70">Email profesional o personal</label>
+                    <input type="email" name="email" placeholder="tu@email.com" class="px-6 py-4 rounded-2xl text-gray-900 font-medium outline-none focus:ring-4 focus:ring-blue-400" required>
+                </div>
+
+                <button type="submit" class="btn-enhanced bg-gray-900 text-white px-10 py-5 rounded-2xl font-bold uppercase tracking-widest mt-4 shadow-2xl">
+                    Confirmar Reserva Prioritaria
                 </button>
+                <p class="mt-4 text-[10px] text-blue-200 text-center uppercase tracking-widest">Tecnología Protegida por la OEPM • Safekuk 2026</p>
             </form>
-            <p class="mt-6 text-xs text-blue-200 drop-shadow">Al suscribirte, aceptas nuestra política de privacidad. No enviamos spam.</p>
         </div>
     </section>
 
     <footer class="py-12 border-t border-gray-100 dark:border-gray-900 text-center text-sm text-gray-400 bg-white dark:bg-gray-950">
-        <p>© 2026 SAFEKUK. Todos los derechos reservados.</p>
+        <p>© 2026 SAFEKUK. Diseño Industrial Patentado.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Lógica de cambio de imagen según scroll en Sección 3
-        const featTexts = document.querySelectorAll('.feat-text');
-        const featImg = document.getElementById('feat-img');
-        
-        window.addEventListener('scroll', () => {
-            featTexts.forEach(text => {
-                const rect = text.getBoundingClientRect();
-                if (rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-                    const newSrc = text.getAttribute('data-img');
-                    if (featImg.src !== newSrc) {
-                        featImg.style.opacity = '0';
-                        featImg.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            featImg.src = newSrc;
-                            featImg.style.opacity = '1';
-                            featImg.style.transform = 'scale(1)';
-                        }, 200);
-                    }
-                }
-            });
-        });
-        
-        // Parallax effect on scroll
+        // Parallax Background
+        const parallaxImage = document.getElementById('parallax-image');
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax-slow');
-            parallaxElements.forEach(el => {
-                el.style.transform = `translateY(${scrolled * 0.3}px)`;
-            });
+            parallaxImage.style.transform = `translateX(-50%) translateY(${scrolled * 0.4}px)`;
         });
-        
-        // Apple-style parallax background
-        const parallaxImage = document.getElementById('parallax-image');
-        let ticking = false;
-        
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrolled = window.pageYOffset;
-                    // Slow down the scroll effect (0.5 = half speed)
-                    parallaxImage.style.transform = `translateX(-50%) translateY(${scrolled * 0.5}px)`;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-        
-        // Magnetic effect for magnetic elements
-        document.querySelectorAll('.magnetic').forEach(el => {
-            el.addEventListener('mouseenter', (e) => {
-                el.style.transform = 'scale(1.05)';
-            });
-            el.addEventListener('mouseleave', (e) => {
-                el.style.transform = 'scale(1)';
-            });
-        });
-        
-        // Zoom on scroll for images
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.transform = 'scale(1.05)';
-                } else {
-                    entry.target.style.transform = 'scale(1)';
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.zoom-on-scroll').forEach(img => {
-            observer.observe(img);
-        });
-        
-        // 2. NUEVA LÓGICA: Envío de formulario a la Serverless Function
-        const form = document.querySelector('form'); // Selecciona el formulario de la sección contacto
 
+        // Form Handling
+        const form = document.querySelector('form');
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
             const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        const button = form.querySelector('button');
+            const data = Object.fromEntries(formData.entries());
+            const button = form.querySelector('button');
 
-        button.disabled = true;
-        button.innerText = 'ENVIANDO...';
+            button.disabled = true;
+            button.innerText = 'PROCESANDO REGISTRO...';
 
-        try {
-            const response = await fetch('/api/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data) // Enviamos nombre, apellidos, telefono y email
-            });
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
 
-            const result = await response.json();
+                const result = await response.json();
 
-            if (response.ok) {
-                alert('¡Gracias ' + data.nombre + '! Hemos reservado tu acceso.');
-                form.reset();
-            } else if (response.status === 409) {
-                 // Caso específico de duplicado
-                alert('Atención: El email o el teléfono ya están registrados en nuestra lista de espera.');
-            } else {
-                // Otros errores (formato, etc)
-                alert('Error: ' + (result.error || 'No se pudo completar el registro.'));
+                if (response.ok) {
+                    alert('¡Excelente ' + data.nombre + '! Te avisaremos en cuanto tu unidad esté lista para envío.');
+                    form.reset();
+                } else if (response.status === 409) {
+                    alert('Este email o teléfono ya está en nuestra lista de espera. ¡Pronto recibirás noticias!');
+                } else {
+                    alert('Error: ' + (result.error || 'Por favor, revisa los datos.'));
+                }
+            } catch (error) {
+                alert('Error de conexión con el servidor.');
+            } finally {
+                button.disabled = false;
+                button.innerText = 'CONFIRMAR RESERVA PRIORITARIA';
             }
-        } catch (error) {
-            alert('Error de conexión.');
-        } finally {
-            button.disabled = false;
-            button.innerText = 'RESERVAR ACCESO';
-        }
-    });
+        });
     </script>
 </body>
 </html>
